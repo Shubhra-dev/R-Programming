@@ -8,7 +8,9 @@ value <- rnorm(n=length(timeseries))
 irreg <- xts(value, order.by = timeseries)
 head(irreg)
 
+#Converting as Matrix
 data_matrix = as.matrix(coredata(irreg))
+#Again converting as Dataframe
 as.data.frame(data_matrix)
 
 value <- rnorm(n=row(df))
