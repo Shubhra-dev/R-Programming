@@ -14,8 +14,10 @@ head(df_week)
 df_week_2 = to.period(df,period = "weeks",OHLC = FALSE) 
 head(df_week_2)
 
-
+#--------------------------
 #Applying Rolling functions
+#--------------------------
+
 
 #a monthly cumulative sum of a time series
 df_monthly = split(df,f="months") 
