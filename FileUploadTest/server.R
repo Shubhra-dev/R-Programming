@@ -30,6 +30,7 @@ shinyServer(function(input,output,session){
     
     fLine <- readLines(fileName, n = 1)
     print(fLine)
+    # xlsx and xls
     if(grepl(".xlsx",fileName) || grepl(".xls",fileName)){
       
       datf <- read.xlsx(fileName,colNames = TRUE)
@@ -38,13 +39,13 @@ shinyServer(function(input,output,session){
       return(datf)
     }
     
-    #read .tsv files
+    # .tsv files
     else if(grepl(".tsv",fileName)){
       datf <- read_tsv(fileName,col_types =  cols(.default = col_character()))
       return(datf)
     }
     
-    #read .csv files with semicolon separator 
+    # .csv files with semicolon separator 
     else if(grepl(".csv",fileName)){
       
       if (grepl(";", fLine)){
@@ -59,7 +60,7 @@ shinyServer(function(input,output,session){
       return(datf)
     }
     
-    #read .txt and .dat files
+    # .txt and .dat files
     else if(grepl(".txt",fileName) || grepl(".dat",fileName)){
       
       if (grepl("\\|", fLine)){
