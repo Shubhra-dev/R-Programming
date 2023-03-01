@@ -17,7 +17,6 @@ dbListTables(mydb)
 shinyServer(function(input,output,session){
   startTime <- Sys.time()
   #declaring reactive values for generating pdf report of the output
-  # vals <- reactiveValues(tab1=NULL,tab2=NULL,pl1=NULL,pl2=NULL)
   
   readingFiles<- function(fileName)({
     
@@ -161,8 +160,7 @@ shinyServer(function(input,output,session){
     filename <- function() {
       paste("report-", Sys.Date(), ".pdf")
     },
-    #content is a also default argument of downloadHandler function. A function that takes a single argument "file" that is a file path (string) of a nonexistent temp file, and writes the content to that file path. 
-    content <- function(file) {
+       content <- function(file) {
       datf <- getDataFrame()
       pdf(file,title = pdfTitle,paper = "a4") # open the pdf device
       grid.table(datf)
