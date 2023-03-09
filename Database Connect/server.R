@@ -36,7 +36,7 @@ shinyServer(function(input,output,session){
       return(datf)
     }
     
-    #read .csv files with semicolon separator 
+    #read csv files with semicolon separator 
     else if(grepl(".csv",fileName)){
       
       if (grepl(";", fLine)){
@@ -51,7 +51,7 @@ shinyServer(function(input,output,session){
       return(datf)
     }
     
-    #read .txt and .dat files
+    #read txt and dat files
     else if(grepl(".txt",fileName) || grepl(".dat",fileName)){
       
       if (grepl("\\|", fLine)){
@@ -115,20 +115,12 @@ shinyServer(function(input,output,session){
         datf <- getDataFrame()
         createPlot(datf[[1]],datf[[2]])
       }),
-    # renderTable({
-    #   datf <- getDataFrame()
-    #   datf
-    # }),
     downloadButton('export1',"Download Report"),
     renderPlot({
       #saving the plot in a reactive value
       datf <- getDataFrame()
       createPlot(datf[[1]],datf[[3]])
     }),
-    # renderTable({
-    #   datf <- getDataFrame()
-    #   datf
-    # }),
     downloadButton('export2',"Download Report")
     )
     }
