@@ -16,7 +16,7 @@ dbListTables(mydb)
 
 shinyServer(function(input,output,session){
   startTime <- Sys.time()
-  #declaring reactive values for generating pdf report of the output
+  #declaring reactive values for generating pdf report 
   
   readingFiles<- function(fileName)({
     
@@ -30,7 +30,7 @@ shinyServer(function(input,output,session){
       return(datf)
     }
     
-    #read .tsv files
+    #read tsv files
     else if(grepl(".tsv",fileName)){
       datf <- read_tsv(fileName,col_types =  cols(.default = col_character()))
       return(datf)
