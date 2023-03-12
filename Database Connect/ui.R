@@ -8,6 +8,7 @@ shinyUI(fluidPage(
       fileInput("file","Upload the file (CSV or Excel)"),
       textInput("link", "Upload link")
     ),
+#main panel
     mainPanel(
       uiOutput("plot")
     )
